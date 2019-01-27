@@ -1,0 +1,38 @@
+buildscript {
+    ext.ktor_version = '1.1.2'
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.20'
+}
+
+group 'net.zargor.urlshortener'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "com.moandjiezana.toml:toml4j:0.7.2"
+    compile "org.mongodb:mongodb-driver-sync:3.9.1"
+    compile "org.apache.commons:commons-lang3:3.8.1"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.zargor.urlshortener.ShortenerKt'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}

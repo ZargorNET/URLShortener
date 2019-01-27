@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100% !important;">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>Zargor's URL-Shortener</title>
+	<link href="static/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+</head>
+<body style="height: 100%; width: 100%">
+
+<main class="text-center d-flex align-items-center justify-content-center flex-column">
+	<form class="form">
+		<div class="alert alert-danger" id="alert" role="alert">Javascript disabled</div>
+		<div class="alert alert-success" id="success" role="alert">
+			Success! Your shortened link:
+			<div onclick="copyUrl()" class="d-flex justify-content-center align-items-center"
+				 style="background-color: black; opacity: 0.5; color: white; padding: 5px; cursor: pointer">
+				<span style="margin-left: auto;" id="url-text">u.zrgr.pw/you_shold_not_see_this</span>
+				<div class="material-icons" style="margin-left: auto">file_copy</div>
+			</div>
+		</div>
+		<h1 class="h3 mb-3 font-weight-normal">Zargor's URLShortener</h1>
+		<input class="form-control" id="url-input" placeholder="https://example.tld/yourLongUrlHere">
+		<input autocomplete="current-password" class="form-control mt-1" id="auth-pwd" placeholder="Upload password"
+			   type="password">
+		<button class="btn-lg btn btn-primary btn-block mt-3 d-flex justify-content-center align-items-center align-middle"
+				id="submit" type="button" onclick="return send();">Shorten! <i
+				class="material-icons ml-1">send</i>
+		</button>
+	</form>
+	<footer>
+		Made by Zargor &copy; 2019
+	</footer>
+
+	<script src="static/app.js" type="text/javascript"></script>
+</main>
+</body>
+</html>
